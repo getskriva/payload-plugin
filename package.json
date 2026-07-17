@@ -1,0 +1,46 @@
+{
+  "name": "@skriva/payload-plugin",
+  "version": "0.1.0",
+  "description": "Payload CMS 3 plugin for publishing from Skriva — manifest/schema/publish endpoints, markdown→Lexical conversion, idempotent upsert.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getskriva/payload-plugin.git"
+  },
+  "homepage": "https://skriva.io",
+  "bugs": "https://github.com/getskriva/payload-plugin/issues",
+  "keywords": ["payload", "payload-plugin", "cms", "skriva", "content", "publishing"],
+  "publishConfig": { "access": "public" },
+  "packageManager": "pnpm@10.27.0",
+  "engines": { "node": ">=18" },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "pnpm build && pnpm test",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@payloadcms/richtext-lexical": "^3.0.0",
+    "payload": "^3.0.0"
+  },
+  "devDependencies": {
+    "@payloadcms/richtext-lexical": "^3.85.1",
+    "@types/node": "^22.15.0",
+    "payload": "^3.85.1",
+    "typescript": "^5.9.0",
+    "vitest": "^4.1.9"
+  }
+}
